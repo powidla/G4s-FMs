@@ -1,0 +1,293 @@
+
+  823  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/Quadruplex_norm_to_500.bed -fo mmQuad_filter-norm_to_500.fasta
+  828  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/high_dataset.bed -fo high_dataset.fasta
+  830  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/high_dataset.bed -fo high_dataset.fasta
+  831  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/low_dataset.bed -fo low_dataset.fasta
+  833  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/G4_ChIP_hg19.bed -fo G4Chip.fasta
+  835  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/G4_ChIP_hg19.bed -fo G4Chip.fasta
+  836  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/high_dataset.bed -fo high_dataset.fasta
+  837  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/G4_Cut_and_Tag_hg19.bed -fo g4cut.fasta
+  839  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/g4_cut(1).bed -fo g4cut.fasta
+  841  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/g4_cut.bed -fo g4cut.fasta
+  842  bedtools getfasta -fi reference_genome.fa -bed g4_cut.bed -fo g4cut.fasta
+  843  bedtools getfasta -fi reference_genome.fa -bed g4chip.bed -fo g4chip.fasta
+  844  bedtools getfasta -fi reference_genome.fa -bed endoquad.bed -fo g4seq.fasta
+  846  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/high_dataset.bed -fo endo_high_levels.fasta
+  860  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b "3' UTR Exons.bed" > DNABERT2_overlap_3'_UTR_exons.bed
+  863  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b "3' UTR Exons.bed" > DNABERT2_overlap_3'_UTR_exons.bed
+  864  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/high_dataset.bed -fo endo_high_levels.fasta
+  865  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b 3' UTR Exons.bed > DNABERT2_overlap_3'_UTR_exons.bed
+  866  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b 3_UTR_Exons.bed > DNABERT2_overlap_3_UTR_exons.bed
+  867  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b 5_UTR_Exons.bed > DNABERT2_overlap_5_UTR_exons.bed
+  868  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Upstream_by_1000.bed > DNABERT2_overlap_upstream_by_1000.bed
+  869  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Exons_plus.bed > DNABERT2_overlap_exons_plus.bed
+  870  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Instrons_plus.bed > DNABERT2_overlap_introns_plus.bed
+  871  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Introns_plus.bed > DNABERT2_overlap_introns_plus.bed
+  872  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Coding_Exons.bed > DNABERT2_overlap_coding_exons.bed
+  873  mkdir predictions_overlaps
+  874  cd predictions_overlaps
+  875  mkdir DNABERT2_overlaps
+  876  mkdir HYENADNA_overlaps
+  877  mkdir CADUCEUS_overlaps
+  878  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Coding_Exons.bed 
+  879  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Coding_Exons.bed | wc -l
+  880  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b 3_UTR_Exons.bed | wc -l
+  881  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b 5_UTR_Exons.bed | wc -l
+  882  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Exons_plus.bed | wc -l
+  883  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Introns_plus.bed | wc -l
+  884  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Upstream_by_1000.bed 
+  885  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Coding_Exons.bed | awk '{print $1}' | sort | uniq -c
+  886  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b 3_UTR_Exons.bed | awk '{print $1}' | sort | uniq -c
+  887  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b 5_UTR_Exons.bed | awk '{print $1}' | sort | uniq -c
+  888  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Exons_plus.bed | awk '{print $1}' | sort | uniq -c
+  889  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Introns_plus.bed | awk '{print $1}' | sort | uniq -c
+  890  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Upstream_by_1000.bed | awk '{print $1}' | sort | uniq -c
+  891  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b HYENADNA_G4.bed | wc -l
+  892  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b G4DNABERT_lifted_to_hg38.bed | wc -l
+  893  bedtools intersect -a HYENADNA_G4.bed -b HYENADNA_G4.bed | wc -l
+  896  bedtools intersect -a G4_ChIP_hg19.bed -b G4_ChIP_hg19.bed | wc -l
+  897  bedtools intersect -a EndoQuad_hg19.bed -b EndoQuad_hg19.bed | wc -l
+  898  bedtools intersect -a G4_Cut_and_Tag_hg19.bed -b G4_Cut_and_Tag_hg19.bed | wc -l
+  899  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b EndoQuad_hg19.bed | wc -l
+  900  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b high_dataset.bed | wc -l
+  901  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b G4_Cut_and_Tag_hg19.bed | wc -l
+  902  bedtools intersect -a HYENADNA_G4.bed -b Coding_Exons.bed 
+  903  bedtools intersect -a HYENADNA_G4.bed -b Coding_Exons.bed | wc -l
+  904  bedtools intersect -a HYENADNA_G4.bed -b 3_UTR_Exons.bed | wc -l
+  905  bedtools intersect -a HYENADNA_G4.bed -b 5_UTR_Exons.bed | wc -l
+  906  bedtools intersect -a HYENADNA_G4.bed -b Exons_plus.bed | wc -l
+  907  bedtools intersect -a HYENADNA_G4.bed -b Introns_plus.bed | wc -l
+  908  bedtools intersect -a HYENADNA_G4.bed -b Upstream_by_1000.bed 
+  909  bedtools intersect -a HYENADNA_G4.bed -b Upstream_by_1000.bed | wc -l
+  912  bedtools intersect -a EndoQuad_hg19.bed -b Coding_Exons.bed | wc -l
+  913  bedtools intersect -a EndoQuad_hg19.bed -b 3_UTR_Exons.bed | wc -l
+  914  bedtools intersect -a EndoQuad_hg19.bed -b 5_UTR_Exons.bed | wc -l
+  915  bedtools intersect -a EndoQuad_hg19.bed -b Exons_plus.bed | wc -l
+  916  bedtools intersect -a EndoQuad_hg19.bed -b Introns_plus.bed | wc -l
+  917  bedtools intersect -a EndoQuad_hg19.bed -b Upstream_by_1000.bed | wc -l
+  920  bedtools intersect -a G4_Cut_and_Tag_hg19.bed -b Upstream_by_1000.bed | wc -l
+  922  awk '{if($1 ~ /^[0-9XY]+$/) print "chr"$1, $2, $3, $4, $5, $6; else print $0}' OFS='\t' G4_ChIP_hg19.bed > g4chip.bed
+  923  awk '{if($1 ~ /^[0-9XY]+$/) print "chr"$1, $2, $3, $4, $5, $6; else print $0}' OFS='\t' G4_Cut_and_Tag_hg19.bed > g4cut.bed
+  924  bedtools intersect -a g4chip.bed -b Upstream_by_1000.bed | wc -l
+  925  bedtools intersect -a g4chip.bed -b Coding_Exons.bed | wc -l
+  926  bedtools intersect -a g4chip.bed -b 3_UTR_Exons.bed | wc -l
+  927  bedtools intersect -a g4chip.bed -b 5_UTR_Exons.bed | wc -l
+  928  bedtools intersect -a g4chip.bed -b Exons_plus.bed | wc -l
+  929  bedtools intersect -a g4chip.bed -b Introns_plus.bed | wc -l
+  930  bedtools intersect -a g4cut.bed -b Upstream_by_1000.bed | wc -l
+  931  bedtools intersect -a g4cut.bed -b Coding_Exons.bed | wc -l
+  932  bedtools intersect -a g4cut.bed -b 3_UTR_Exons.bed | wc -l
+  933  bedtools intersect -a g4cut.bed -b 5_UTR_Exons.bed | wc -l
+  934  bedtools intersect -a g4cut.bed -b Exons_plus.bed | wc -l
+  935  bedtools intersect -a g4cut.bed -b Introns_plus.bed | wc -l
+  936  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Caduceus.bed | wc -l
+  937  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Cad_G4.bed | wc -l
+  938  bedtools intersect -a HYENADNA_G4.bed -b Cad_G4.bed | wc -l
+  939  bedtools intersect -a G4DNABERT_lifted_to_hg38.bed -b Cad_G4.bed | wc -l
+  940  bedtools intersect -a Cad_G4.bed -b Upstream_by_1000.bed | wc -l
+  941  bedtools intersect -a Cad_G4.bed -b Coding_Exons.bed | wc -l
+  942  bedtools intersect -a Cad_G4.bed -b 3_UTR_Exons.bed | wc -l
+  943  bedtools intersect -a Cad_G4.bed -b 5_UTR_Exons.bed | wc -l
+  944  bedtools intersect -a Cad_G4.bed -b Exons_plus.bed | wc -l
+  945  bedtools intersect -a Cad_G4.bed -b Introns_plus.bed | wc -l
+  946  bedtools intersect -a Cad_G4.bed -b g4chip.bed | wc -l
+  947  bedtools intersect -a Cad_G4.bed -b high_dataset.bed | wc -l
+  948  bedtools intersect -a Cad_G4.bed -b EndoQuad_hg19.bed | wc -l
+  950  bedtools intersect -a Cad_G4.bed -b EndoQuad_hg19.bed | wc -l
+  951  bedtools intersect -a Cad_G4.bed -b high_dataset.bed | wc -l
+  952  bedtools intersect -a Cad_G4.bed -b g4chip.bed | wc -l
+  953  bedtools intersect -a Cad_G4.bed -b Upstream_by_1000.bed | wc -l
+  954  bedtools intersect -a Cad_G4.bed -b Coding_Exons.bed | wc -l
+  955  bedtools intersect -a Cad_G4.bed -b 3_UTR_Exons.bed | wc -l
+  956  bedtools intersect -a Cad_G4.bed -b 5_UTR_Exons.bed | wc -l
+  957  bedtools intersect -a Cad_G4.bed -b Exons_plus.bed | wc -l
+  958  bedtools intersect -a Cad_G4.bed -b Introns_plus.bed | wc -l
+  959  bedtools intersect -a Cad_G4.bed -b Cad_G4.bed | wc -l
+  960  bedtools intersect -a Cad_G4.bed -b dELS.bed | wc -l
+  961  bedtools intersect -a Cad_G4.bed -b pELS.bed | wc -l
+  962  bedtools intersect -a Cad_G4.bed -b CTFC-only.bed | wc -l
+  963  bedtools intersect -a Cad_G4.bed -b PLS.bed | wc -l
+  964  bedtools intersect -a Cad_G4.bed -b CTFC.bed | wc -l
+  965  bedtools intersect -a Cad_G4.bed -b DNaseH3K4me3.bed | wc -l
+  966  bedtools intersect -a HyenaDNA_G4.bed -b dELS.bed | wc -l
+  967  bedtools intersect -a HYENADNA_G4.bed -b dELS.bed | wc -l
+  968  bedtools intersect -a HYENADNA_G4.bed -b pELS.bed | wc -l
+  969  bedtools intersect -a HYENADNA_G4.bed -b DNaseH3K4me3.bed | wc -l
+  970  bedtools intersect -a HYENADNA_G4.bed -b PLs.bed | wc -l
+  971  bedtools intersect -a HYENADNA_G4.bed -b PLS.bed | wc -l
+  972  bedtools intersect -a DNABERT_G4.bed -b PLS.bed | wc -l
+  973  bedtools intersect -a DNABERT_G4.bed -b dELS.bed | wc -l
+  974  bedtools intersect -a DNABERT_G4.bed -b pELS.bed | wc -l
+  975  bedtools intersect -a DNABERT_G4.bed -b PLS.bed | wc -l
+  976  bedtools intersect -a DNABERT_G4.bed -b DNaseH3K4me3.bed | wc -l
+  977  bedtools intersect -a DNABERT2_G4.bed -b DNaseH3K4me3.bed | wc -l
+  978  bedtools intersect -a DNABERT2_G4.bed -b PLS.bed | wc -l
+  979  bedtools intersect -a DNABERT_G4.bed -b pELS.bed | wc -l
+  980  bedtools intersect -a DNABERT2_G4.bed -b dELS.bed | wc -l
+  981  bedtools intersect -a GENALM_G4.bed -b dELS.bed | wc -l
+  982  bedtools intersect -a GENALM_G4.bed -b pELS.bed | wc -l
+  983  bedtools intersect -a GENALM_G4.bed -b DNaseH3K4me3.bed | wc -l
+  984  bedtools intersect -a GENALM_G4.bed -b PLS.bed | wc -l
+  985  bedtools intersect -a GENALM_G4.bed -b CTFC.bed | wc -l
+  986  bedtools intersect -a GENALM_G4.bed -b CTCF.bed | wc -l
+  987  bedtools intersect -a Cad_G4.bed -b CTCF.bed | wc -l
+  988  bedtools intersect -a DNABERT2_G4.bed -b CTCF.bed | wc -l
+  989  bedtools intersect -a DNABERT_G4.bed -b CTCF.bed | wc -l
+  990  bedtools intersect -a HYENADNA_G4.bed -b CTCF.bed | wc -l
+  991  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/H-DNA.bed -fo HDNA.fasta
+  994  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/H-DNA.bed -fo HDNA.fasta
+  995  bedtools getfasta -fi reference_genome.fa -bed ~/Desktop/Kouzine.bed -fo Kou.fasta
+ 1007  bedtools getfasta -fi reference_genome.fa -bed ~/Downloads/HDNA_to_500.bed -fo HDNA_500.fasta
+ 1009  bedtools getfasta -fi reference_genome.fa -bed ~/Downloads/HDNA_to_500.bed -fo HDNA_500.fasta
+ 1010  bedtools getfasta -fi reference_genome.fa -bed ~/Downloads/Shin_to_500.bed -fo Shin_500.fasta
+ 1011  bedtools getfasta -fi reference_genome.fa -bed ~/Downloads/Kouzine_to_500.bed -fo Kouzine_500.fasta
+ 1012  bedtools getfasta -fi reference_genome.fa -bed ~/Downloads/Kou_to_500.bed -fo Kou_500.fasta
+ 1014  bedtools getfasta -fi reference_genome.fa -bed chromatin_accessibility.bed -fo chromatin_accessibility.fasta
+ 1017  bedtools getfasta -fi reference_genome.fa -bed chromatin_accessibility.bed_simplified.bed -fo chromatin_accessibility.fasta
+ 1020  bedtools getfasta -fi reference_genome.fa -bed cpg_methylation.bed_simplified.bed -fo cpg_methylation.fasta
+ 1023  bedtools getfasta -fi reference_genome.fa -bed gene_finding.bed_simplified.bed -fo gene_finding.fasta
+ 1026  bedtools getfasta -fi reference_genome.fa -bed variant_effects_disease.bed_simplified.bed -fo variant_effects_disease.fasta
+ 1029  bedtools getfasta -fi reference_genome.fa -bed enhancer_annotation.bed_simplified.bed -fo enhancer_annotation.fasta
+ 1030  bedtools getfasta -fi reference_genome.fa -bed chromatin_accessibility_modified.bed -fo chromatin_accessibility.fasta
+ 1045  bedtools intersect -a GENALM_G4.bed -b pELS.bed -fo ./cluster/GENALM_G4_pELS.bed
+ 1047  bedtools intersect -a GENALM_G4.bed -b pELS.bed > cluster/GENALM_G4_pELS.bed
+ 1057  bedtools intersect -a GENALM_G4.bed -b pELS.bed > cluster/GENALM/GENALM_G4_pELS.bed
+ 1058  bedtools intersect -a GENALM_G4.bed -b CTCF.bed > cluster/GENALM/GENALM_G4_CTCF.bed
+ 1059  bedtools intersect -a GENALM_G4.bed -b CTCF_only.bed > cluster/GENALM/GENALM_G4_CTCF_only.bed
+ 1060  bedtools intersect -a GENALM_G4.bed -b CTCF-only.bed > cluster/GENALM/GENALM_G4_CTCF_only.bed
+ 1061  bedtools intersect -a GENALM_G4.bed -b PLS.bed > cluster/GENALM/GENALM_G4_PLS.bed
+ 1062  bedtools intersect -a GENALM_G4.bed -b dELS.bed > cluster/GENALM/GENALM_G4_dELS.bed
+ 1063  bedtools intersect -a GENALM_G4.bed -b DNaseH3K4me3.bed > cluster/GENALM/GENALM_G4_DNASE.bed
+ 1064  bedtools intersect -a DNABERT_G4.bed -b pELS.bed > cluster/DNABERT/DNABERT_G4_pELS.bed
+ 1065  bedtools intersect -a DNABERT_G4.bed -b CTCF.bed > cluster/DNABERT/DNABERT_G4_CTCF.bed
+ 1066  bedtools intersect -a DNABERT_G4.bed -b CTCF-only.bed > cluster/DNABERT/DNABERT_G4_CTCF_only.bed
+ 1067  bedtools intersect -a DNABERT_G4.bed -b PLS.bed > cluster/DNABERT/DNABERT_G4_PLS.bed
+ 1068  bedtools intersect -a DNABERT_G4.bed -b dELS.bed > cluster/DNABERT/DNABERT_G4_dELS.bed
+ 1069  bedtools intersect -a DNABERT_G4.bed -b DNaseH3K4me3.bed > cluster/DNABERT/DNABERT_G4_DNASE.bed
+ 1070  bedtools intersect -a DNABERT2_G4.bed -b pELS.bed > cluster/DNABERT2/DNABERT2_G4_pELS.bed
+ 1071  bedtools intersect -a DNABERT2_G4.bed -b CTCF.bed > cluster/DNABERT2/DNABERT2_G4_CTCF.bed
+ 1072  bedtools intersect -a DNABERT2_G4.bed -b CTCF-only.bed > cluster/DNABERT2/DNABERT2_G4_CTCF_only.bed
+ 1073  bedtools intersect -a DNABERT2_G4.bed -b PLS.bed > cluster/DNABERT2/DNABERT2_G4_PLS.bed
+ 1074  bedtools intersect -a DNABERT2_G4.bed -b dELS.bed > cluster/DNABERT2/DNABERT2_G4_dELS.bed
+ 1075  bedtools intersect -a DNABERT2_G4.bed -b DNaseH3K4me3.bed > cluster/DNABERT2/DNABERT2_G4_DNASE.bed
+ 1076  bedtools intersect -a HYENADNA_G4.bed -b pELS.bed > cluster/HYENADNA/HYENADNA_G4_pELS.bed
+ 1077  bedtools intersect -a HYENADNA_G4.bed -b pELS.bed > cluster/HyenaDNA/HYENADNA_G4_pELS.bed
+ 1078  bedtools intersect -a HYENADNA_G4.bed -b CTCF.bed > cluster/HyenaDNA/HYENADNA_G4_CTCF.bed
+ 1079  bedtools intersect -a HYENADNA_G4.bed -b CTCF-only.bed > cluster/HyenaDNA/HYENADNA_G4_CTCF_only.bed
+ 1080  bedtools intersect -a HYENADNA_G4.bed -b PLS.bed > cluster/HyenaDNA/HYENADNA_G4_PLS.bed
+ 1081  bedtools intersect -a HYENADNA_G4.bed -b dELS.bed > cluster/HyenaDNA/HYENADNA_G4_dELS.bed
+ 1082  bedtools intersect -a HYENADNA_G4.bed -b DNaseH3K4me3.bed > cluster/HyenaDNA/HYENADNA_G4_DNASE.bed
+ 1083  bedtools intersect -a CADUCEUS_G4.bed -b pELS.bed > cluster/Caduceus/CADUCEUS_G4_pELS.bed
+ 1084  bedtools intersect -a Cad_G4.bed -b pELS.bed > cluster/Caduceus/CADUCEUS_G4_pELS.bed
+ 1085  bedtools intersect -a Cad_G4.bed -b CTCF.bed > cluster/Caduceus/CADUCEUS_G4_CTCF.bed
+ 1086  bedtools intersect -a Cad_G4.bed -b CTCF-only.bed > cluster/Caduceus/CADUCEUS_G4_CTCF_only.bed
+ 1087  bedtools intersect -a Cad_G4.bed -b PLS.bed > cluster/Caduceus/CADUCEUS_G4_PLS.bed
+ 1088  bedtools intersect -a Cad_G4.bed -b dELS.bed > cluster/Caduceus/CADUCEUS_G4_dELS.bed
+ 1089  bedtools intersect -a Cad_G4.bed -b DNaseH3K4me3.bed > cluster/Caduceus/CADUCEUS_G4_DNASE.bed
+ 1118  bedtools getfasta -fi reference_genome.fa -bed ./cluster/Caduceus/CADUCEUS_G4_CTCF.bed -fo ./cluster/Caduceus/fastas/CADUCEUS_G4_CTCF.fasta
+ 1119  bedtools getfasta -fi reference_genome.fa -bed ./cluster/Caduceus/CADUCEUS_G4_CTCF.bed -fo CADUCEUS_G4_CTCF.fasta
+ 1120  bedtools getfasta -fi reference_genome.fa -bed home/cluster/Caduceus/CADUCEUS_G4_CTCF.bed -fo CADUCEUS_G4_CTCF.fasta
+ 1127  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_CTCF.bed -fo CADUCEUS_G4_CTCF.fasta
+ 1128  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_CTCF.bed -fo /home/oleksandr/cluster/Caduceus/fastas/CADUCEUS_G4_CTCF.fasta
+ 1130  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_CTCF_inly.bed -fo /home/oleksandr/cluster/Caduceus/fastas/CADUCEUS_G4_CTCF_only.fasta
+ 1131  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_CTCF_only.bed -fo /home/oleksandr/cluster/Caduceus/fastas/CADUCEUS_G4_CTCF_only.fasta
+ 1132  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_dELS.bed -fo /home/oleksandr/cluster/Caduceus/fastas/CADUCEUS_G4_dELS.fasta
+ 1134  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_DNASE.bed -fo /home/oleksandr/cluster/Caduceus/fastas/CADUCEUS_G4_DNASE.fasta
+ 1135  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_pELS.bed -fo /home/oleksandr/cluster/Caduceus/fastas/CADUCEUS_G4_pELS.fasta
+ 1137  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/Caduceus/CADUCEUS_G4_PLS.bed -fo /home/oleksandr/cluster/Caduceus/fastas/CADUCEUS_G4_PLS.fasta
+ 1139  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/HyenaDNA/HYENADNA_G4_PLS.bed -fo /home/oleksandr/cluster/HyenaDNA/fastas/HYENADNA_G4_PLS.fasta
+ 1141  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/HyenaDNA/HYENADNA_G4_pELS.bed -fo /home/oleksandr/cluster/HyenaDNA/fastas/HYENADNA_G4_pELS.fasta
+ 1143  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/HyenaDNA/HYENADNA_G4_DNASE.bed -fo /home/oleksandr/cluster/HyenaDNA/fastas/HYENADNA_G4_DNASE.fasta
+ 1145  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/HyenaDNA/HYENADNA_G4_dELS.bed -fo /home/oleksandr/cluster/HyenaDNA/fastas/HYENADNA_G4_dELS.fasta
+ 1147  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/HyenaDNA/HYENADNA_G4_CTCF.bed -fo /home/oleksandr/cluster/HyenaDNA/fastas/HYENADNA_G4_CTCF.fasta
+ 1148  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/HyenaDNA/HYENADNA_G4_CTCF_only.bed -fo /home/oleksandr/cluster/HyenaDNA/fastas/HYENADNA_G4_CTCF_only.fasta
+ 1149  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT/DNABERT_G4_CTCF_only.bed -fo /home/oleksandr/cluster/DNABERT/fastas/DNABERT_G4_CTCF_only.fasta
+ 1150  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT/DNABERT_G4_CTCF.bed -fo /home/oleksandr/cluster/DNABERT/fastas/DNABERT_G4_CTCF.fasta
+ 1151  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT/DNABERT_G4_dELS.bed -fo /home/oleksandr/cluster/DNABERT/fastas/DNABERT_G4_dELS.fasta
+ 1153  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT/DNABERT_G4_pELS.bed -fo /home/oleksandr/cluster/DNABERT/fastas/DNABERT_G4_pELS.fasta
+ 1155  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT/DNABERT_G4_PLS.bed -fo /home/oleksandr/cluster/DNABERT/fastas/DNABERT_G4_PLS.fasta
+ 1157  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT/DNABERT_G4_DNASE.bed -fo /home/oleksandr/cluster/DNABERT/fastas/DNABERT_G4_DNASE.fasta
+ 1158  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_DNASE.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_DNASE.fasta
+ 1159  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_PLS.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_PLS.fasta
+ 1160  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_pELS.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_pELS.fasta
+ 1161  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_dELS.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_dELS.fasta
+ 1162  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_CTCF.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_CTCF.fasta
+ 1163  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_CTCF_only.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_CTCF_only.fasta
+ 1165  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/GENALM/GENALM_G4_CTCF_only.bed -fo /home/oleksandr/cluster/GENALM/fastas/GENALM_G4_CTCF_only.fasta
+ 1166  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/GENALM/GENALM_G4_CTCF.bed -fo /home/oleksandr/cluster/GENALM/fastas/GENALM_G4_CTCF.fasta
+ 1167  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/GENALM/GENALM_G4_DNASE.bed -fo /home/oleksandr/cluster/GENALM/fastas/GENALM_G4_DNASE.fasta
+ 1168  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/GENALM/GENALM_G4_PLS.bed -fo /home/oleksandr/cluster/GENALM/fastas/GENALM_G4_PLS.fasta
+ 1169  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/GENALM/GENALM_G4_pELS.bed -fo /home/oleksandr/cluster/GENALM/fastas/GENALM_G4_pELS.fasta
+ 1170  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/GENALM/GENALM_G4_dELS.bed -fo /home/oleksandr/cluster/GENALM/fastas/GENALM_G4_dELS.fasta
+ 1182  bedtools intersect -a HYENADNA_G4.bed -b CTCF.bed > cluster/HyenaDNA/HYENADNA_G4_CTCF.bed
+ 1184  bedtools intersect -a HYENADNA_G4.bed -b 3_UTR_Exons.bed > cluster2/HyenaDNA/HYENADNA_G4_3_UTR.bed
+ 1185  bedtools intersect -a HYENADNA_G4.bed -b 3_UTR_Exons.bed > cluster2/Hyena/HYENADNA_G4_3_UTR.bed
+ 1186  bedtools intersect -a HYENADNA_G4.bed -b 5_UTR_Exons.bed > cluster2/Hyena/HYENADNA_G4_5_UTR.bed
+ 1187  bedtools intersect -a HYENADNA_G4.bed -b Coding_Exons.bed > cluster2/Hyena/HYENADNA_G4_Coding_exons.bed
+ 1188  bedtools intersect -a HYENADNA_G4.bed -b Exons_plus.bed > cluster2/Hyena/HYENADNA_G4_Exons_plus.bed
+ 1189  bedtools intersect -a HYENADNA_G4.bed -b Introns_plus.bed > cluster2/Hyena/HYENADNA_G4_Introns_plus.bed
+ 1190  bedtools intersect -a HYENADNA_G4.bed -b Upstream_by_1000.bed > cluster2/Hyena/HYENADNA_G4_Upstream_by_1000.bed
+ 1191  bedtools intersect -a DNABERT_G4.bed -b Upstream_by_1000.bed > cluster2/DNABERT/DNABERT_G4_Upstream_by_1000.bed
+ 1192  bedtools intersect -a DNABERT_G4.bed -b Introns_plus.bed > cluster2/DNABERT/DNABERT_G4_Introns_plus.bed
+ 1193  bedtools intersect -a DNABERT_G4.bed -b Exons_plus.bed > cluster2/DNABERT/DNABERT_G4_Exons_plus.bed
+ 1194  bedtools intersect -a DNABERT_G4.bed -b Coding_exons.bed > cluster2/DNABERT/DNABERT_G4_Coding_exons.bed
+ 1195  bedtools intersect -a DNABERT_G4.bed -b Coding_Exons.bed > cluster2/DNABERT/DNABERT_G4_Coding_exons.bed
+ 1196  bedtools intersect -a DNABERT_G4.bed -b 5_UTR_Exons.bed > cluster2/DNABERT/DNABERT_G4_5_UTR.bed
+ 1197  bedtools intersect -a DNABERT_G4.bed -b 3_UTR_Exons.bed > cluster2/DNABERT/DNABERT_G4_3_UTR.bed
+ 1198  bedtools intersect -a DNABERT2_G4.bed -b 3_UTR_Exons.bed > cluster2/DNABERT2/DNABERT2_G4_3_UTR.bed
+ 1199  bedtools intersect -a DNABERT2_G4.bed -b 5_UTR_Exons.bed > cluster2/DNABERT2/DNABERT2_G4_5_UTR.bed
+ 1200  bedtools intersect -a DNABERT2_G4.bed -b Coding_Exons.bed > cluster2/DNABERT2/DNABERT2_G4_Coding_exons.bed
+ 1201  bedtools intersect -a DNABERT2_G4.bed -b Exons_plus.bed > cluster2/DNABERT2/DNABERT2_G4_Exons_plus.bed
+ 1202  bedtools intersect -a DNABERT2_G4.bed -b Introns_plus.bed > cluster2/DNABERT2/DNABERT2_G4_Introns_plus.bed
+ 1203  bedtools intersect -a DNABERT2_G4.bed -b Upstream_by_1000.bed > cluster2/DNABERT2/DNABERT2_G4_Upstream_by_1000.bed
+ 1204  bedtools intersect -a GENALM_G4.bed -b Upstream_by_1000.bed > cluster2/GENALM/GENALM_G4_Upstream_by_1000.bed
+ 1205  bedtools intersect -a GENALM_G4.bed -b Introns_plus.bed > cluster2/GENALM/GENALM_G4_Introns_plus.bed
+ 1206  bedtools intersect -a GENALM_G4.bed -b Exons_plus.bed > cluster2/GENALM/GENALM_G4_Exons_plus.bed
+ 1207  bedtools intersect -a GENALM_G4.bed -b Coding_exons.bed > cluster2/GENALM/GENALM_G4_Coding_exons.bed
+ 1208  bedtools intersect -a GENALM_G4.bed -b Coding_Exons.bed > cluster2/GENALM/GENALM_G4_Coding_exons.bed
+ 1209  bedtools intersect -a GENALM_G4.bed -b 5_UTR_Exons.bed > cluster2/GENALM/GENALM_G4_5_UTR.bed
+ 1210  bedtools intersect -a GENALM_G4.bed -b 3_UTR_Exons.bed > cluster2/GENALM/GENALM_G4_3_UTR.bed
+ 1211  bedtools intersect -a Cad_G4.bed -b 3_UTR_Exons.bed > cluster2/Caduceus/CADUCEUS_G4_3_UTR.bed
+ 1212  bedtools intersect -a Cad_G4.bed -b 5_UTR_Exons.bed > cluster2/Caduceus/CADUCEUS_G4_5_UTR.bed
+ 1213  bedtools intersect -a Cad_G4.bed -b Coding_Exons.bed > cluster2/Caduceus/CADUCEUS_G4_Coding_exons.bed
+ 1214  bedtools intersect -a Cad_G4.bed -b Exons_plus.bed > cluster2/Caduceus/CADUCEUS_G4_Exons_plus.bed
+ 1215  bedtools intersect -a Cad_G4.bed -b Introns_plus.bed > cluster2/Caduceus/CADUCEUS_G4_Introns_plus.bed
+ 1216  bedtools intersect -a Cad_G4.bed -b Upstream_by_1000.bed > cluster2/Caduceus/CADUCEUS_G4_Upstream_by_1000.bed
+ 1236  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_DNASE.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_3_UTR.fasta
+ 1237  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_3_UTR.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_3_UTR.fasta
+ 1238  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_3_UTR.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_3_UTR.fasta
+ 1239  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_5_UTR.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_5_UTR.fasta
+ 1241  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_Coding_exons.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_Coding_exons.fasta
+ 1243  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_Exons_plus.bed -fo /home/oleksandr/cluster/DNABERT2/fastas/DNABERT2_G4_Introns_plus.fasta
+ 1244  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster/DNABERT2/DNABERT2_G4_3_UTR.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABERT2_G4_3_UTR.fasta
+ 1245  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_3_UTR.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABERT2_G4_3_UTR.fasta
+ 1246  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_3_UTR.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABERT2_G4_5_UTR.fasta
+ 1247  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_5_UTR.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABERT2_G4_5_UTR.fasta
+ 1248  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_Coding_exons.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABERT2_G4_Coding_exons.fasta
+ 1249  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_Exons_plus.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABERT2_G4_Exons_plus.fasta
+ 1250  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_Introns_plus.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABERT2_G4_Introns_plus.fasta
+ 1251  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT2/DNABERT2_G4_Upstream_by_1000.bed -fo /home/oleksandr/cluster2/DNABERT2/fastas/DNABE_G4_Upstream_by_1000.fasta
+ 1252  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Hyena/HYENADNA_G4_Upstream_by_1000.bed -fo /home/oleksandr/cluster2/Hyena/fastas/HYENADNA_G4_Upstream_by_1000.fasta
+ 1253  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Hyena/HYENADNA_G4_Introns_plus.bed -fo /home/oleksandr/cluster2/Hyena/fastas/HYENADNA_G4_Introns_plus.fasta
+ 1254  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Hyena/HYENADNA_G4_Exons_plus.bed -fo /home/oleksandr/cluster2/Hyena/fastas/HYENADNA_G4_Exons_plus.fasta
+ 1255  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Hyena/HYENADNA_G4_Coding_exons.bed -fo /home/oleksandr/cluster2/Hyena/fastas/HYENADNA_G4_Coding_exons.fasta
+ 1256  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Hyena/HYENADNA_G4_5_UTR.bed -fo /home/oleksandr/cluster2/Hyena/fastas/HYENADNA_G4_5_UTR.fasta
+ 1257  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Hyena/HYENADNA_G4_3_UTR.bed -fo /home/oleksandr/cluster2/Hyena/fastas/HYENADNA_G4_3_UTR.fasta
+ 1258  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Caduceus/CADUCEUS_G4_3_UTR.bed -fo /home/oleksandr/cluster2/Caduceus/fastas/CADUCEUS_G4_3_UTR.fasta
+ 1259  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Caduceus/CADUCEUS_G4_5_UTR.bed -fo /home/oleksandr/cluster2/Caduceus/fastas/CADUCEUS_G4_5_UTR.fasta
+ 1260  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Caduceus/CADUCEUS_G4_Coding_exons.bed -fo /home/oleksandr/cluster2/Caduceus/fastas/CADUCEUS_G4_Coding_exons.fasta
+ 1261  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Caduceus/CADUCEUS_G4_Exons_plus.bed -fo /home/oleksandr/cluster2/Caduceus/fastas/CADUCEUS_G4_Exons_plus.fasta
+ 1262  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Caduceus/CADUCEUS_G4_Introns_plus.bed -fo /home/oleksandr/cluster2/Caduceus/fastas/CADUCEUS_G4_Introns_plus.fasta
+ 1263  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/Caduceus/CADUCEUS_G4_Upstream_by_1000.bed -fo /home/oleksandr/cluster2/Caduceus/fastas/CADUCEUS_G4_Upstream_by_1000.fasta
+ 1264  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT/DNABERT_G4_3_UTR.bed -fo /home/oleksandr/cluster2/DNABERT/fastas/DNABERT_G4_3_UTR.fasta
+ 1265  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT/DNABERT_G4_5_UTR.bed -fo /home/oleksandr/cluster2/DNABERT/fastas/DNABERT_G4_5_UTR.fasta
+ 1266  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT/DNABERT_G4_Coding_exons.bed -fo /home/oleksandr/cluster2/DNABERT/fastas/DNABERT_G4_Coding_exons.fasta
+ 1267  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT/DNABERT_G4_Exons_plus.bed -fo /home/oleksandr/cluster2/DNABERT/fastas/DNABERT_G4_Exons_plus.fasta
+ 1268  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT/DNABERT_G4_Introns_plus.bed -fo /home/oleksandr/cluster2/DNABERT/fastas/DNABERT_G4_Introns_plus.fasta
+ 1269  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/DNABERT/DNABERT_G4_Upstream_by_1000.bed -fo /home/oleksandr/cluster2/DNABERT/fastas/DNABERT_G4_Upstream_by_1000.fasta
+ 1270  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/GENALM/GENALM_G4_Upstream_by_1000.bed -fo /home/oleksandr/cluster2/GENALM/fastas/GENALM_G4_Upstream_by_1000.fasta
+ 1271  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/GENALM/GENALM_G4_Coding_exons.bed -fo /home/oleksandr/cluster2/GENALM/fastas/GENALM_G4_Coding_exons.fasta
+ 1272  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/GENALM/GENALM_G4_Exons_plus.bed -fo /home/oleksandr/cluster2/GENALM/fastas/GENALM_G4_Exons_plus.fasta
+ 1273  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/GENALM/GENALM_G4_Introns_plus.bed -fo /home/oleksandr/cluster2/GENALM/fastas/GENALM_G4_Introns_plus.fasta
+ 1274  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/GENALM/GENALM_G4_3_UTR.bed -fo /home/oleksandr/cluster2/GENALM/fastas/GENALM_G4_3_UTR.fasta
+ 1275  bedtools getfasta -fi reference_genome.fa -bed /home/oleksandr/cluster2/GENALM/GENALM_G4_5_UTR.bed -fo /home/oleksandr/cluster2/GENALM/fastas/GENALM_G4_5_UTR.fasta
